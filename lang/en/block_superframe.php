@@ -34,6 +34,25 @@
 $string['pluginname'] = 'Super frame';
 $string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}';
 $string['message'] = 'I am a great developer';
+$string['viewlink'] = 'view Page';
+
+
+
+
+// Admin settings file.
+$string['headerconfig'] = 'Super frame settings';
+$string['headerconfigdesc'] = 'Settings for Super frame';
+
+
+$string['height'] = 'Height';
+$string['height_details'] = 'Height of the frame (px)';
+$string['width'] = 'Width';
+$string['width_details'] = 'Width of the frame (px)';
+$string['pagelayout'] = 'Page layout';
+$string['pagelayout_details'] = 'Select a preferred page layout';
+$string['url']='iFrame URL';
+$string['url_details']="url details";
+
 
 // Capability strings
 $string['superframe:addinstance'] = 'Add a new Super frame block';
