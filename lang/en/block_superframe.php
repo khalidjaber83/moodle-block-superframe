@@ -64,3 +64,5 @@ $string['custom'] = 'Custom';
 $string['small'] = 'Small';
 $string['medium'] = 'Medium';
 $string['large'] = 'Large';
+
+$string['superframe:seeviewpage'] = 'View the link to the view page in the block';

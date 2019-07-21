@@ -12,7 +12,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>;.
 /**
  * superframe view page
  *
@@ -22,21 +22,22 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 require('../../config.php');
-//$config = get_config('block_superframe');
 $blockid = required_param('blockid', PARAM_INT);
 $def_config = get_config('block_superframe');
-
-
 $PAGE->set_course($COURSE);
 $PAGE->set_url('/blocks/superframe/view.php');
 $PAGE->set_heading($SITE->fullname);
-$PAGE->set_pagelayout('course');
-//$PAGE->set_pagelayout($config->pagelayout);
 $PAGE->set_pagelayout($def_config->pagelayout);
-
 $PAGE->set_title(get_string('pluginname', 'block_superframe'));
 $PAGE->navbar->add(get_string('pluginname', 'block_superframe'));
 require_login();
+$usercontext = context_user::instance($USER->id);
+require_capability('block/superframe:seeviewpage', $usercontext);
+
+// Start output to browser.
+echo $OUTPUT->header();
+echo $OUTPUT->heading(get_string('pluginname', 'block_superframe'), 5);
+echo '<br>' . fullname($USER) . '<br>';
 
 // Get the instance configuration data from the database.
 // It's stored as a base 64 encoded serialized string.
@@ -74,31 +75,6 @@ switch ($config->size) {
         break;
 }
 
-
-// Start output to browser.
-echo $OUTPUT->header();
-echo $OUTPUT->heading(get_string('pluginname', 'block_superframe'), 5);
-// Dummy content.
-echo 'I am some dummy content, get rid of me fast';
-echo '<br>' . fullname($USER) . '<br>';
-echo $OUTPUT->user_picture($USER);
-
-$url = 'https://quizlet.com/132695231/scatter/embed';
-$width = '600px';
-$height = '400px';
-/*$attributes = ['src' => $url,
-               'width' => $width,
-               'height' => $height];
-               $attributes = ['src' => $config->url,
-               'width' => $config->width,
-               'height' => $config->height];
-echo html_writer::start_tag('iframe', $attributes);
-echo html_writer::end_tag('iframe');
-
-*/
-
-
-
 // Build and display an iframe.
 $attributes = ['src' => $url,
                'width' => $width,
@@ -106,6 +82,5 @@ $attributes = ['src' => $url,
 echo html_writer::start_tag('iframe', $attributes);
 echo html_writer::end_tag('iframe');
 
-
-//send footer out to browser
+// Send footer out to browser.
 echo $OUTPUT->footer();
