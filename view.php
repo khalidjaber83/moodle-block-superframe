@@ -86,4 +86,5 @@ echo html_writer::end_tag('iframe');
 echo $OUTPUT->footer();*/
 
 $renderer = $PAGE->get_renderer('block_superframe');
-$renderer->display_view_page($url, $width, $height);
+$renderer->display_view_page($url, $width, $height,fullname($USER));
+//$renderer->display_view_page::$data=fullname($USER);
