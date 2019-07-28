@@ -23,17 +23,25 @@ class block_superframe_renderer extends plugin_renderer_base {
         echo $this->output->footer();
     }
 
-    function fetch_block_content($url,$user,$text1)
+    function fetch_block_content($url,$user,$text)
     {
         $data = new stdClass();
 
+
         // Page heading and iframe data.
-        $data->text = $text1;
+        $data->text = $text;
         $data->url=$url;
         $data->user=$user;
 
        
-         echo $this->render_from_template('block_superframe/content', $data);
+        // Start output to browser.
+      //echo $this->output->header();
+
+                // Render the data in a Mustache template.
+        echo $this->render_from_template('block_superframe/content', $data);
+
+         // Finish the page.
+//        echo $this->output->footer();
 
 
     }

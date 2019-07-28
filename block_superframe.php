@@ -103,7 +103,7 @@ class block_superframe extends block_base {
                   $renderer=$this->page->get_renderer('block_superframe');
                        $url = new moodle_url('/blocks/superframe/view.php', ['blockid' => $blockid]);
                        $text=get_string('viewlink', 'block_superframe');
-                $this->content->text=$renderer->fetch_block_content($url,$USER,$text);
+                $this->content->text=$renderer->fetch_block_content($url,fullname($USER),$text);
               //  $this->content->text .= '<p>' . html_writer::link($url,
                 //        get_string('viewlink', 'block_superframe')) . '</p>';
         }
