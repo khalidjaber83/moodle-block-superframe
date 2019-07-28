@@ -16,7 +16,7 @@
 }}
 
 {{!
-    @template block_superiframe/frame
+    @template block_superiframe/content
 
     This template renders a url in an iframe of given size.
 
@@ -32,11 +32,9 @@
 
 
 
-<div  class="container">
-    <h3>{{heading}}</h3>
-     <h3>{{user}}</h3>
-    <iframe src="{{url}}" height="{{height}}" width="{{width}}">
-    </iframe>
+<div class="container">
+    <h3>welcome {{user}}</h3> 
+    <a href="{{{url}}}">{{text}}</a>
 </div>
 
 
