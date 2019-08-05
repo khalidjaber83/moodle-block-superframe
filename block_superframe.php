@@ -77,38 +77,10 @@ class block_superframe extends block_base {
         $this->content = new stdClass();
         $this->content->footer = '';
 
-      // $blockid=$this->instance->id;
-      //  $renderer=$this->page->get_renderer('block_superframe');
-       // $this->content->text=$renderer->fetch_block_content($blockid);
-
-
-     //   $this->content->text = get_string('welcomeuser', 'block_superframe',                $USER);
-      //  $this->content->text .= get_string('message', 'block_superframe');
-
-        //$this->content->text .= '<br /><a href="' . $CFG->wwwroot . '/blocks/superframe/view.php">' .
-          //      get_string('viewlink', 'block_superframe') . '</a>';
-
-
-    //    $url = new moodle_url('/blocks/superframe/view.php', ['blockid' => $blockid]);
-//$this->content->text .= '<p>' . html_writer::link($url,
-  //      get_string('viewlink', 'block_superframe')) . '</p>';
-
-
-   // Check user permission to see the view page.
-             $usercontext = context_user::instance($USER->id);
-
-             if (has_capability('block/superframe:seeviewpage', $usercontext)) {
-                // Add the block id to the Moodle URL for the view page.
-                $blockid = $this->instance->id;
-                  $renderer=$this->page->get_renderer('block_superframe');
-                       $url = new moodle_url('/blocks/superframe/view.php', ['blockid' => $blockid]);
-                       $text=get_string('viewlink', 'block_superframe');
-                $this->content->text=$renderer->fetch_block_content($url,fullname($USER),$text);
-              //  $this->content->text .= '<p>' . html_writer::link($url,
-                //        get_string('viewlink', 'block_superframe')) . '</p>';
-        }
-
-
+        // Get the block content.
+        $blockid = $this->instance->id;
+        $renderer = $this->page->get_renderer('block_superframe');
+        $this->content->text = $renderer->fetch_block_content($blockid);
 
         return $this->content;
     }
@@ -129,12 +101,10 @@ class block_superframe extends block_base {
     function instance_allow_multiple() {
         return true;
     }
-
-     /**
+    /**
      * Allow block configuration.
      */
     function has_config() {
         return true;
     }
-
 }

@@ -13,41 +13,36 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * Settings used by the lesson module, were moved from mod_edit
+ * superframe settings
  *
- * @package mod_lesson
- * @copyright  2009 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
- **/
-
-defined('MOODLE_INTERNAL') || die;
-
-
-
+ * @package    block_superframe
+ * @copyright  Daniel Neis <danielneis@gmail.com>
+ * Modified for use in MoodleBites for Developers Level 1 by Richard Jones & Justin Hunt
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+defined('MOODLE_INTERNAL') || die();
+// Our default values:
+$defaulturl = 'https://quizlet.com/132695231/scatter/embed';
+$defaultheight = '400';
+$defaultwidth = '600';
 $settings->add(new admin_setting_heading('sampleheader',
          get_string('headerconfig', 'block_superframe'),
          get_string('headerconfigdesc', 'block_superframe')));
-
-    $defaulturl='https://quizlet.com/132695231/scatter/embed';
-$settings->add(new admin_setting_configtext('block_superframe/url', get_string('url', 'block_superframe'),
-            get_string('url_details', 'block_superframe'), $defaulturl, PARAM_RAW)); 
-
-
-$defaultheight = '400';
+// The url to be displayed.
+$settings->add(new admin_setting_configtext('block_superframe/url',
+        get_string('url', 'block_superframe'),
+        get_string('url_details', 'block_superframe'),
+        $defaulturl, PARAM_RAW));
+// The iframe height and width.
 $settings->add(new admin_setting_configtext('block_superframe/height',
         get_string('height', 'block_superframe'),
         get_string('height_details', 'block_superframe'),
         $defaultheight, PARAM_INT));
-
-$defaultwidth = '600';
 $settings->add(new admin_setting_configtext('block_superframe/width',
         get_string('width', 'block_superframe'),
         get_string('width_details', 'block_superframe'),
         $defaultwidth, PARAM_INT));
-
-
 $options = array();
 $options['course'] = get_string('course');
 $options['popup'] = get_string('popup');

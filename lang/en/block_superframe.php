@@ -30,33 +30,27 @@
  * See: https://www.moodlebites.com/mod/page/view.php?id=24546
  */
 
-// General
+// General.
 $string['pluginname'] = 'Super frame';
 $string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}';
-$string['message'] = 'I am a great developer';
-$string['viewlink'] = 'view Page';
-
-
-
+$string['viewlink'] = 'See view page';
 
 // Admin settings file.
 $string['headerconfig'] = 'Super frame settings';
 $string['headerconfigdesc'] = 'Settings for Super frame';
-
-
+$string['url'] = 'url';
+$string['url_details'] = 'Url to display';
 $string['height'] = 'Height';
 $string['height_details'] = 'Height of the frame (px)';
 $string['width'] = 'Width';
 $string['width_details'] = 'Width of the frame (px)';
 $string['pagelayout'] = 'Page layout';
 $string['pagelayout_details'] = 'Select a preferred page layout';
-$string['url']='iFrame URL';
-$string['url_details']="url details";
 
-
-// Capability strings
+// Capability strings.
 $string['superframe:addinstance'] = 'Add a new Super frame block';
 $string['superframe:myaddinstance'] = 'Add a new Super frame block to my moodle';
+$string['superframe:seeviewpage'] = 'View block page';
 
 // Edit form strings.
 $string['size'] = 'Select a size for your iframe';
@@ -64,5 +58,10 @@ $string['custom'] = 'Custom';
 $string['small'] = 'Small';
 $string['medium'] = 'Medium';
 $string['large'] = 'Large';
-
-$string['superframe:seeviewpage'] = 'View the link to the view page in the block';
+$string['poplink']='pop Link';
+$string['blockid']='block id';
+$string['blockname']='block name';
+$string['course']='Course short Name';
+$string['catname']='Category' ;
+                
+            

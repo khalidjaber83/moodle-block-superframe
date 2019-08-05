@@ -34,11 +34,6 @@ require_login();
 $usercontext = context_user::instance($USER->id);
 require_capability('block/superframe:seeviewpage', $usercontext);
 
-/*/ Start output to browser.
-echo $OUTPUT->header();
-echo $OUTPUT->heading(get_string('pluginname', 'block_superframe'), 5);
-echo '<br>' . fullname($USER) . '<br>';
-*/
 // Get the instance configuration data from the database.
 // It's stored as a base 64 encoded serialized string.
 $configdata = $DB->get_field('block_instances', 'configdata', ['id' => $blockid]);
@@ -75,16 +70,5 @@ switch ($config->size) {
         break;
 }
 
-/*/ Build and display an iframe.
-$attributes = ['src' => $url,
-               'width' => $width,
-               'height' => $height];
-echo html_writer::start_tag('iframe', $attributes);
-echo html_writer::end_tag('iframe');
-
-// Send footer out to browser.
-echo $OUTPUT->footer();*/
-
 $renderer = $PAGE->get_renderer('block_superframe');
-$renderer->display_view_page($url, $width, $height,fullname($USER));
-//$renderer->display_view_page::$data=fullname($USER);
+$renderer->display_view_page($url, $width, $height);
