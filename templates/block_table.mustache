@@ -16,17 +16,27 @@
 }}
 
 {{!
-    @template block_superiframe/block_table
+    @template block_superframe/blockdata
 
-    This template renders a url in an iframe of given size.
+    Moodle rendering template for block records
+
+    This template renders a Bootstrap table.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
 
     Example context (json):
     {
-        "welcome": "Welcome user",
-        "url": "http://www.moodlebites.com",
-        "text": "link text",
+        "tableheaders": ["heading 1", "heading 2"],
+        "tabledata": [["item1row 1", "item2row 1"],
+                      ["item1row 2", "item2row 2"]]
     }
+
 }}
+
 <div class = "table-responsive">
     <table class = "table table-striped">
         {{! Using a get_string helper }}

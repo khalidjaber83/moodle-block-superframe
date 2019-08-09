@@ -25,11 +25,14 @@
         "heading": "My superframe",
         "url": "http://www.moodlebites.com",
         "height": "400",
-        "width": "600"
+        "width": "600",
+        "returnlink": "#",
+        "returntext": "Return to course"
     }
 }}
 <div  class="container">
     <h3>{{heading}}</h3>
     <iframe src="{{url}}" height="{{height}}" width="{{width}}">
     </iframe>
+    <p><a href="{{{returnlink}}}">{{returntext}}</a></p>
 </div>

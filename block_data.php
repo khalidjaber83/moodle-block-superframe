@@ -6,19 +6,19 @@
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// Moodle is distributed in the hope that it will be useful,
+// Moodle is distributed in the hope that it will   be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>;.
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
- * superframe block data display page
+ * This is a very simple content page that uses a mustache template
+ * to display records from a table.
  *
  * @package    block_superframe
- * @copyright  Richard Jones  richardnz@outlook.com
- *
+ * @copyright  2019 Richard Jones http://richardnz.net/
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 use \block_superframe\local\block_data;

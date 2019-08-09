@@ -32,8 +32,11 @@
 
 // General.
 $string['pluginname'] = 'Super frame';
-$string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}';
+$string['welcomeuser'] = 'Welcome {$a}';
 $string['viewlink'] = 'See view page';
+$string['poplink'] = 'Block summary (popup)';
+$string['tablelink'] = 'Table Manager';
+$string['returncourse'] = 'Return to course';
 
 // Admin settings file.
 $string['headerconfig'] = 'Super frame settings';
@@ -58,10 +61,10 @@ $string['custom'] = 'Custom';
 $string['small'] = 'Small';
 $string['medium'] = 'Medium';
 $string['large'] = 'Large';
-$string['poplink']='pop Link';
-$string['blockid']='block id';
-$string['blockname']='block name';
-$string['course']='Course short Name';
-$string['catname']='Category' ;
-                
-            
+
+// For display of the block data table.
+$string['tablecaption'] = 'Block instances by course';
+$string['blockid'] = 'id';
+$string['catname'] = 'Category';
+$string['blockname'] = 'Block name';
+$string['course'] = 'Course shortname';

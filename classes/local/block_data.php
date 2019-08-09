@@ -12,7 +12,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>;.
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  * block_superframe main file
  *
@@ -23,6 +23,8 @@
 /**
  * Modified for use in MoodleBites for Developers Level 1
  * by Richard Jones & Justin Hunt.
+ *
+ * See: https://www.moodlebites.com/mod/page/view.php?id=24546
  */
 namespace block_superframe\local;
 defined('MOODLE_INTERNAL') || die();
