@@ -68,3 +68,17 @@ $string['blockid'] = 'id';
 $string['catname'] = 'Category';
 $string['blockname'] = 'Block name';
 $string['course'] = 'Course shortname';
+
+// Size links.
+$string['size'] = 'Select a size for your iframe';
+$string['custom'] = 'custom';
+$string['small'] = 'small';
+$string['medium'] = 'medium';
+$string['large'] = 'large';
+
+// Navigation API.
+$string['userlink'] = 'Installed blocks';
+
+// AMD modal.
+$string['about'] = 'About superiframe';
+$string['lastaccess']='last access';

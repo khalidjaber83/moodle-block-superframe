@@ -16,24 +16,35 @@
 }}
 
 {{!
-    @template block_superiframe/block_content
+    @template block_superframe/links
 
-    This template renders a url in an iframe of given size.
+    Moodle rendering template for block_superframe links
+
+    This template renders a Bootstrap navigation list.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
 
     Example context (json):
     {
-        "headingclass" : "block_superframe_heading",
-        "welcome": "Welcome user",
-        "url": "http://www.moodlebites.com",
-        "text": "link text",
+        "class": "block_superframe_link",
+        "name": "My links: ",
+        "linkdata": [ {"link": "#", "text": "link 1"} ]
     }
+
 }}
-<div>
-    <h3 class="{{headingclass}}">{{welcome}}</h3>
-    <ul>
-        <li><a href="{{{url}}}">{{text}}</a></li>
-        <li><a href={{{popurl}}} target="_blank"> {{poptext}}</a></li>
-        <li><a href={{{tableurl}}} target="_blank"> {{tabletext}}</a></li>
-    </ul>
-    <p>{{access}} {{access1}}</p>
+<div class = "{{class}}">
+  <div  class="container">
+      <ul class="list-inline">
+      <li class="list-inline-item"><h4>{{name}}</h4></li>
+        {{#linkdata}}
+          <li class="list-inline-item">
+             <a href="{{{link}}}">{{text}}</a>
+          </li>
+        {{/linkdata}}
+      </ul>
+  </div>
 </div>

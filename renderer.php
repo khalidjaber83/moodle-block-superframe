@@ -22,9 +22,10 @@
  */
 class block_superframe_renderer extends plugin_renderer_base {
 
- function display_view_page($url, $width, $height, $id) {
+ function display_view_page($url, $width, $height, $id, $blockid) {
 
         $data = new stdClass();
+         $this->page->requires->js_call_amd('block_superframe/amd_modal', 'init');
 
         // Page heading and iframe data.
         $data->heading = get_string('pluginname', 'block_superframe');
@@ -33,6 +34,26 @@ class block_superframe_renderer extends plugin_renderer_base {
         $data->width = $width;
         $data->returnlink = new moodle_url('/course/view.php', ['id' => $id]);
         $data->returntext = get_string('returncourse', 'block_superframe');
+        $data->modallinktext = get_string('about', 'block_superframe');
+
+        // Text for the links and the size parameter.
+        $strings = array();
+        $strings[] = get_string('custom', 'block_superframe');
+        $strings[] = get_string('small', 'block_superframe');
+        $strings[] = get_string('medium', 'block_superframe');
+        $strings[] = get_string('large', 'block_superframe');
+
+        // Create the data structure for the links.
+        $links = array();
+        $link = new moodle_url('/blocks/superframe/view.php', ['courseid' => $id,
+                'blockid' => $blockid]);
+
+        foreach ($strings as $string) {
+            $links[] = ['link' => $link->out(false, ['size' => $string]),
+                    'text' => $string];
+        }
+
+        $data->linkdata = $links;
 
         // Start output to browser.
         echo $this->output->header();
@@ -47,10 +68,12 @@ class block_superframe_renderer extends plugin_renderer_base {
 
     public function fetch_block_content($blockid, $courseid) {
         global $USER;
+        global $DB;
         $data = new stdClass();
 
         $name = $USER->firstname . ' ' . $USER->lastname;
         $this->page->requires->js_call_amd('block_superframe/test_amd', 'init', ['name' => $name]);
+$access = $DB->get_record('user_lastaccess', ['courseid' => $courseid, 'userid' => $USER->id], '*', MUST_EXIST);
 
         $data->headingclass = 'block_superframe_heading';
         $data->welcome =
@@ -62,6 +85,8 @@ class block_superframe_renderer extends plugin_renderer_base {
         $data->poptext = get_string('poplink', 'block_superframe');
         $data->tableurl = new moodle_url('/blocks/superframe/tablemanager.php');
         $data->tabletext = get_string('tablelink', 'block_superframe');
+        $data->access=get_string('lastaccess','block_superframe',$access);
+        $data->access1=$access;
 
 
         return $this->render_from_template('block_superframe/block_content',

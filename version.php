@@ -30,6 +30,6 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2019062010; // Added test amd module.
+$plugin->version   = 2019082110; // Added test amd module.
 $plugin->requires  = 2017111300; // Minimum Moodle 3.4.
 $plugin->component = 'block_superframe';

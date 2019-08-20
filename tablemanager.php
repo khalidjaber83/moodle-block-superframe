@@ -110,7 +110,8 @@ $pagetitle = "Table Manager: ";
 // Fetch URL parameters.
 $action = optional_param('action','list',PARAM_TEXT);
 $actionitem = optional_param('id',0,PARAM_INT);
-//$dev1=optional_param('id',0,PARAM_INT);
+
+
 // Set course related variables.
 $PAGE->set_course($COURSE);
 $course = $DB->get_record('course', array('id' => $COURSE->id), '*', MUST_EXIST);
@@ -179,8 +180,6 @@ if ($action == "edit") {
 else  // Get all the records in the table.
 {
     $alldata = $DB->get_records($tablename, [], null, $fieldlist);
-    $alldata = $DB->get_records($tablename, ['id' => $COURSE->id], null, $fieldlist);
-
 }
 
 // Call the function at the top of the page to display an html table.
